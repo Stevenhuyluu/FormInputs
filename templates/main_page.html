@@ -25,7 +25,16 @@
           <input type="text" class="form-control" name="input_address" id="input_address" placeholder="502 point run way" required>
         </div>
         <div class="form-group">
-          <label for="input_checkbox">What days would you be free? Check all that apply</label><br>
+          <label for= "input_email">What is your email address?</label>
+          <input type="email" class="form-control" name="input_email" id="input_email" placeholder="robinhood@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label for="input_radio">Are you signing up to be a volunteer, or just to recycle?</label><br>
+          <input type="radio" name="role" value="Volunteer">Volunteer<br>
+          <input type="radio" name="role" value="Recycle">Recycle<br>
+        </div>
+        <div class ="form-group">
+          <label for="input_checkbox">If you are a Volunteer, What days would you be free? Check all that apply</label><br>
           <input type="checkbox" name="day" value"Monday">Monday<br>
           <input type="checkbox" name="day" value="Tuesday">Tuesday<br>
           <input type="checkbox" name="day" value="Wendnesday">Wednesday<br>
@@ -35,26 +44,17 @@
           <input type="checkbox" name="day" value="Sunday">Sunday</br>
         </div>
         <div class="form-group">
-          <label for="input_select">What is your favorite number?</label>
-          <select multiple class="form-control" name="input_select" id="input_select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="input_freeform">Write big boi essay</label>
+          <label for="input_freeform">Any Questions?</label>
           <textarea class="form-control" name="input_freeform" id="input_freeform" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
     <div class="container">
-      {% if input_data %} {{ input_data }} {% endif %}
-      <br />
       {% if output %} {{ output }} {% endif %}
+      {% if recycle %}Thankyou for recycling {{name}} we wil notify you at {{address}} via postcard on when to put out your recycling. {% endif %}
+      {% if volunteer %}Thankyou for volunteering {{name}} we will notify you at {{email}} via email on which days you will volunteer. {% endif %}
+      {% if questions %}We will answer your question asap by emailing you at {{email}} {% endif %}
     </div>
   </body>
 </html>
